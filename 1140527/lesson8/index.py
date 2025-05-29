@@ -25,7 +25,7 @@ def new():
     try:
         conn = psycopg2.connect(conn_string)
         with conn.cursor() as cur:
-            sql = "SELECT * FROM 最新訊息"
+            sql = "SELECT * FROM 最新消息2"
             cur.execute(sql)
         # 取得所有資料
             rows = cur.fetchall()
@@ -33,7 +33,8 @@ def new():
     except OperationalError as e:
         print("連線失敗")
         print(e)
-        return render_template("error.html.jinja2",error_message="資料庫錯誤"),500
+        #return render_template("error.html.jinja2",error_message="資料庫錯誤"),500
+        return render_template("new.html.jinja2")
     except:
         return render_template("error.html.jinja2",error_message="不知名錯誤"),500
     conn.close()
