@@ -25,11 +25,12 @@ def new():
     try:
         conn = psycopg2.connect(conn_string)
         with conn.cursor() as cur:
-            sql = """SELECT * FROM  最新訊息
-                     ORDER BY 上班日期 DESC;"""
+            sql = """SELECT * FROM 最新消息2
+                    ORDER BY 上班日期 DESC;"""
             cur.execute(sql)
         # 取得所有資料
             rows = cur.fetchall()
+            print(rows)
             
         
     except OperationalError as e:
